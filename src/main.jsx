@@ -4,11 +4,21 @@ import App from './App.jsx';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
+import AddCoffee from './components/AddCoffee.jsx';
+import UpdateCoffee from './components/UpdateCoffee.jsx';
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <div>Hello world!</div>,
+		element: <App></App>,
+	},
+	{
+		path: '/addcoffee/',
+		element: <AddCoffee></AddCoffee>,
+	},
+	{
+		path: '/updatecoffee/',
+		element: <UpdateCoffee></UpdateCoffee>,
 	},
 ]);
 
