@@ -21,6 +21,14 @@ const AddCoffee = () => {
 			photo,
 			category,
 		};
+		if (name == '') {
+			return Swal.fire({
+				title: 'Error!',
+				text: 'Fields are empty',
+				icon: 'error',
+				confirmButtonText: 'Close',
+			});
+		}
 		form.reset();
 		fetch('http://localhost:5000/coffee', {
 			method: 'POST',
@@ -32,9 +40,9 @@ const AddCoffee = () => {
 				if (data.insertedId) {
 					Swal.fire({
 						title: 'Success!',
-						text: 'Your added successfully',
+						text: 'Added successfully',
 						icon: 'success',
-						confirmButtonText: 'Cool',
+						confirmButtonText: 'Ok',
 					});
 				}
 			});
