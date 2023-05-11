@@ -4,13 +4,18 @@ import { useLoaderData } from 'react-router-dom';
 import CoffeeCard from './components/CoffeeCard';
 
 function App() {
-	const coffees = useLoaderData();
+	const loadedCoffees = useLoaderData();
+	const [coffees, setCoffees] = useState(loadedCoffees);
 	return (
 		<>
 			<h1 className='text-center font-bold text-3xl my-20'>Hot Cold Coffee</h1>
 			<div className='mx-auto grid md:grid-cols-2 gap-8 p-24 m-5'>
 				{coffees.map((coffee) => (
-					<CoffeeCard key={coffee._id} coffee={coffee}></CoffeeCard>
+					<CoffeeCard
+						key={coffee._id}
+						coffees={coffees}
+						coffee={coffee}
+						setCoffees={setCoffees}></CoffeeCard>
 				))}
 			</div>
 		</>
